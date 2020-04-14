@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/md_white_1000</item>
+    </style>
+
+    <style name="ToolbarTitleStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="fontFamily">@font/sourcesanspro_semibold</item>
+    </style>
+
+    <style name="ToolbarSubTitleStyle" parent="TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_grey_500</item>
+        <item name="fontFamily">@font/sourcesanspro_semibold</item>
+    </style>
+</resources>

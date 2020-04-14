@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="responseItem"
+            type="com.techneapps.vcassignment.models.ResponseItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16sp">
+
+
+        <ImageView
+            android:id="@+id/itemIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:imageURL="@{responseItem.img}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/item_image" />
+
+        <ImageView
+            android:id="@+id/itemTrendingCondition"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/trending_bg"
+            android:visibility="@{responseItem.isTrending ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/itemText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/trending_indicator" />
+
+
+        <TextView
+            android:id="@+id/itemText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            android:text="@{responseItem.itemText}"
+            android:textColor="@color/md_black_1000"
+            app:layout_constraintBottom_toTopOf="@+id/itemHeadLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/itemHeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="@{responseItem.itemHeadline}"
+            android:textColor="@color/md_grey_900"
+            app:layout_constraintBottom_toTopOf="@+id/itemImageName"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            app:layout_constraintTop_toBottomOf="@+id/itemText" />
+
+        <TextView
+            android:id="@+id/itemImageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginStart="16sp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textColor="@color/md_grey_900"
+            app:imageName="@{responseItem.img}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            app:layout_constraintTop_toBottomOf="@+id/itemHeadLine" />
+
+        <TextView
+            android:id="@+id/itemEndingDays"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textColor="@color/md_grey_700"
+            app:itemExpiry="@{responseItem}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemImageName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
